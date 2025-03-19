@@ -20,5 +20,18 @@ textarea {
     font-size: 16px;
     font-family: monospace;
     outline: none;
+    margin-bottom: 20px;
 } 
 
+.output{
+    margin-top: 20px;
+    padding: 20px;
+    height: auto;
+    background-color: #595959;
+    width: 80%;
+}
+
+.preview {
+
+   
+}
