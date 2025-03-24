@@ -16,6 +16,7 @@ window.addEventListener("load",function(){
 
 inputCode.addEventListener("input",function(){
     localStorage.setItem("savedCode",inputCode.value);
+    this.value = this.value.replace(/[“”]/g,'"').replace(/[‘’]/g,"'");
 })
 
 
