@@ -7,20 +7,24 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <h1>UpDev - JavaScript Playground</h1>
-
-    <textarea id="codeEditor" placeholder="Write your JavaScript code here..."></textarea>
+    <div class="container">
+        <h1>UpDev - JavaScript Playground</h1>
+        <div class="row-button">
+            <button id="runButton">Run</button>
+            <button id="clearInput" onclick="clearCodeAll()">Clear</button>
+        </div>     
+            <textarea id="codeEditor" placeholder="Write your JavaScript code here..."></textarea>
+              
+        <div class="output">
+            <button id="clearOutput" onclick="clearCodeAll()">clear</button>
+            <p>OutPut</p>
+            <pre id="preview">
+            </pre>
+        </div>
     
-    <button id="runButton" > Run</button>
-
-    <div class="output">
-        <p>OutPut</p>
-        <pre id="preview">
+       
     </div>
    
-
-    </pre>
 </body>
-<script src="run.js"></script>
+<script src="function.js"></script>
 </html>

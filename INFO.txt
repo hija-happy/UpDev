@@ -1,0 +1,9 @@
+1) DOM Manipulation – Used document.getElementById() to interact with UI elements like buttons, textarea, and output section.
+
+2) Event Handling – Used addEventListener("click", ...) to execute code when the Run button is clicked.
+
+3) Error Handling (try...catch) – Prevents crashes by handling invalid user inputs.
+
+4) eval() Function – Executes JavaScript code dynamically from the textarea.
+
+5) innerHTML Property – Updates the output section to display execution results.

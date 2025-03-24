@@ -1,3 +1,4 @@
+
 body {
 
     background-color:#1e1e1e ;
@@ -8,8 +9,17 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    overflow: auto;
+
 }
 
+
+.container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 textarea {
     width: 80%;
     height: 300px;
@@ -31,7 +41,53 @@ textarea {
     width: 80%;
 }
 
-.preview {
+.log-output {
+    color: white;
+    font-family: monospace;
+}
 
-   
+.error-output {
+    color: #ff6b6b;
+    font-family: monospace;
+}
+
+.warn-output {
+    color: #ffc107;
+    font-family: monospace;
+}
+
+.info-output {
+    color: #17a2b8;
+    font-family: monospace;
+}
+
+.result-output {
+    color: #28a745;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+#preview {
+    background-color: #222;
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    overflow-x: auto;
+    min-height: 100px;
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: monospace;
+    line-height: 1.5;
+}
+
+.container .row-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: end;
+}
+.row-button button{
+    background-color: #b6b6b6;
+    border-radius: 5px;
+    padding: 5px 10px;
 }
