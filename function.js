@@ -3,52 +3,42 @@ const inputCode = document.getElementById("codeEditor");
 const previewOutput =  document.getElementById("preview");
 
 
-const originalConsole = {
-    log: console.log,
-    warn: console.warn,
-    error: console.error,
-    info: console.info,
+//to load the page for every refresh and page loads
+window.addEventListener("load",function(){
+   if(localStorage.getItem("savedCode")){
+    inputCode.value = localStorage.getItem("savedCode")
    }
+    
+   if(localStorage.getItem("savedOutput")){
+    previewOutput.innerHTML = localStorage.getItem("savedOutput")
+   }
+});
 
-   //array to store the original outputs
-   let consoleOutputs = [];
-   
+inputCode.addEventListener("input",function(){
+    localStorage.setItem("savedCode",inputCode.value);
+})
+
+
 runBtn.addEventListener("click", function(){
 
-    try{
-        // console.log(inputCode.value);// gives the tag textfield
-        // console.log(inputCode.value);// gives the value inside the tag
-        const evalContent = eval(inputCode.value);
-        
-        if(consoleOutputs.length>0){
-            previewOutput.innerHTML = consoleOutputs.join('<br>')+'<br>';
-          }
+    // clear the output area for each click
+    previewOutput.innerHTML = '';
 
-        if(evalContent !== undefined){
-            previewOutput.innerHTML += `<span class="result-output">${String.evalContent}</span>`;
-    }
-}
-    //gives the tag 
-   catch(err){
-   // previewOutput.innerHTML = `Exception: ${err.message}`;
-   previewOutput.innerHTML = `<span class="error-output">Error: ${err.message}</span>`;
+     // reset the consoleOutputs array for each click
+     //array to store the original outputs
+     let consoleOutputs = [];
+       
+      // to capture the console, store the original console methods
+    const originalConsole = {
+        log: console.log,
+        warn: console.warn,
+        error: console.error,
+        info: console.info,
+       }; 
 
-   }
-   finally {
-    // restore original console methods
-    console.log = originalConsole.log;
-    console.error = originalConsole.error;
-    console.warn = originalConsole.warn;
-    console.info = originalConsole.info;
-}
-
-   // to capture the console, store the original console methods
-   
-
-//override the 4 console methods
-
+    //override the 4 console methods
     // for CONSOLE.LOG
-   console.log = function(...args){
+    console.log = function(...args){
     originalConsole.log(...args);
     
     const output = args.map(arg=>{
@@ -86,6 +76,37 @@ runBtn.addEventListener("click", function(){
         const output = args.map(String).join('');
         consoleOutputs.push(`<span class="info-output">${output}</span>`)
     }
+
+    try{
+        // console.log(inputCode.value);// gives the tag textfield
+        // console.log(inputCode.value);// gives the value inside the tag
+        const evalContent = eval(inputCode.value);
+        
+        if(consoleOutputs.length>0){
+            previewOutput.innerHTML = consoleOutputs.join('<br>')+'<br>';
+          }
+
+        if(evalContent !== undefined){
+            previewOutput.innerHTML += `<span class="result-output">${String.evalContent}</span>`;
+    }
+    // to save it into the local storage for runs
+    localStorage.setItem("savedOutput",previewOutput.innerHTML)
+}
+    //gives the tag 
+   catch(err){
+   // previewOutput.innerHTML = `Exception: ${err.message}`;
+   previewOutput.innerHTML = `<span class="error-output">Bro!!! Error: ${err.message}</span>`;
+   localStorage.setItem("savedOutput",previewOutput.innerHTML)
+
+   }
+   finally {
+    // restore original console methods
+    console.log = originalConsole.log;
+    console.error = originalConsole.error;
+    console.warn = originalConsole.warn;
+    console.info = originalConsole.info;
+}
+
 })
 
 // to clear the input and preiew box when clicked in the clear btn
@@ -103,4 +124,4 @@ else if(button.id==="clearOutput"){
 }
 
 document.getElementById("clearInput").addEventListener("click",clearCodeAll);
-document.getElementById("clearOutput").addEventListener("click",clearCodeAll);
+document.getElementById("clearOutput").addEventListener("click",clearCodeAll)
