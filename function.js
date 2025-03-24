@@ -125,4 +125,23 @@ else if(button.id==="clearOutput"){
 }
 
 document.getElementById("clearInput").addEventListener("click",clearCodeAll);
-document.getElementById("clearOutput").addEventListener("click",clearCodeAll)
+document.getElementById("clearOutput").addEventListener("click",clearCodeAll);
+
+
+// for theme toggle 
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click",function(){
+    document.body.classList.toggle("light-theme")
+});
+
+if(document.body.classList.contains("light-theme")){
+    localStorage.setItem("theme","light");
+    themeToggle.innerHTML ="🌚 Dark Mode"
+}
+
+
+else{
+    localStorage.setItem("theme","dark");
+    themeToggle.innerHTML ="🌞 Light Mode"
+}

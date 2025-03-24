@@ -14,6 +14,7 @@
     --output-preview-bg: #12181F;
 
     /* TEXT COLORS */
+    --white:#fff;
     --text-light: #EAEAEA;
     --text-dark: #C0C7D6;
     --text-muted: #9CA3AF;
@@ -25,15 +26,40 @@
     --danger-red-hover: #C0392B;
 
     /* BORDER & SHADOW */
-    --border-color: #374151;
+    --border-color: rgba(255, 255, 255, 0.223);
     --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
-body {
+/* Light Theme */
+.light-theme {
+    /* THEME COLORS */
+    --body-bg: #ffffff;
+    --container-bg: #f8f9fa;
+    --code-editor-bg: #f1f3f5;
+    --output-container-bg: #e9ecef;
+    --output-preview-bg: #ffffff;
 
+    /* TEXT COLORS */
+    --white: #000;
+    --text-light: #333;
+    --text-dark: #555;
+    --text-muted: #777;
+
+    /* BUTTON COLORS */
+    --primary-green: #007bff;
+    --primary-green-hover: #0056b3;
+    --danger-red: #dc3545;
+    --danger-red-hover: #b02a37;
+
+    /* BORDER & SHADOW */
+    --border-color: rgba(0, 0, 0, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
     /* background-color:#1e1e1e ; */
     background-color: var(--body-bg);
-    color: white;
+    color: var(--white);
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
@@ -42,7 +68,6 @@ body {
     min-height: 100vh;
     height: auto;
     overflow: auto;
-
 }
 
 
@@ -53,7 +78,7 @@ body {
     padding: 10px;
     width: 90%;
     display: flex;
-    outline: 1px solid rgba(255, 255, 255, 0.223);
+    outline: 1px solid var(--border-color);
     flex-direction: column;
     align-items: center;
     box-shadow: 0 10px var(--shadow-color);
@@ -61,7 +86,7 @@ body {
 
 textarea {
     
-    color: white;
+    color: var(--white);
     border-radius: 6px;
     width: 95%;
     height: 400px;
@@ -70,12 +95,12 @@ textarea {
     padding: 10px;
     font-size: 16px;
     font-family: monospace;
-    outline: 1px solid rgba(255, 255, 255, 0.223);
+    outline: 1px solid var(--border-color);
     margin-bottom: 20px;
 } 
 
 .output{
-    outline: 1px solid rgba(255, 255, 255, 0.223);
+    outline: 1px solid var(--border-color);
     background-color: var(--output-container-bg);
     border-radius: 6px;
     margin-top: 20px;
@@ -93,7 +118,7 @@ textarea {
 }
 
 .log-output {
-    color: white;
+    color: var(--white);
     font-family: monospace;
 }
 
@@ -121,7 +146,7 @@ textarea {
 #preview {
     background-color: var(--preview-bg);
     border: 0.5px solid var(--border-color);
-    color: #fff;
+    color: var(--white);
     padding: 12px;
     border-radius: 4px;
     overflow-x: auto;
@@ -141,7 +166,6 @@ textarea {
     align-items: end;
 }
     button{
-    background-color: #b6b6b6;
     border-radius: 3px;
     padding: 5px 10px;
     border: none;
@@ -157,8 +181,8 @@ textarea {
 #runButton {
     background-color: var(--primary-green);
 }
-#clearInput:hover {
-    background-color: var()
+#runButton:hover {
+    background-color: var(--primary-green-hover)
 }
 
 @media screen and (max-width: 768px) {
