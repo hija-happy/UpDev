@@ -12,14 +12,15 @@
         <div class="row-button">
             <button id="runButton">Run</button>
             <button id="clearInput" onclick="clearCodeAll()">Clear</button>
-            <button id="themeToggle">🌙 Switch Theme</button>
-           
-
+            <button id="themeToggle">Switch 🌙</button>
         </div>     
-            <textarea id="codeEditor" placeholder="Write your JavaScript code here..."></textarea>     
+            <textarea autocapitalize="off"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false" id="codeEditor" placeholder="Write your JavaScript code here..."></textarea>     
         <div class="output">
             <button id="clearOutput" onclick="clearCodeAll()">clear</button>
-            <p>OutPut</p>
+            <p>Output</p>
             <pre id="preview">
             </pre>
         </div>

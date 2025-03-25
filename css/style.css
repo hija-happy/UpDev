@@ -70,7 +70,6 @@ body {
     overflow: auto;
 }
 
-
 .container {
     margin: 20px 0;
     background-color: var(--container-bg);
@@ -85,7 +84,6 @@ body {
 }
 
 textarea {
-    
     color: var(--white);
     border-radius: 6px;
     width: 95%;
@@ -195,8 +193,11 @@ textarea {
     .container {
         width: 95%;
     }   
-    button {
-        width: 100%;
+   
+    #themeToggle {
+        width: 140px;
     }
-
+    
+    
 }
+        
