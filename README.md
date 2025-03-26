@@ -18,10 +18,10 @@ UpDev is an interactive JavaScript playground where users can write, test, and e
    ```sh
    git clone https://github.com/hijahappy/UpDev.git
 
-2. Open index.html in your browser with Live     Server.    
+2. Open index.html in your browser with Live Server.    
 
 3. Start writing and executing JavaScript code!
 
 ## Live Demo
 
-Check out the live demo here: UpDev Live
+Check out the live demo here: [UpDev Live](https://hija-happy.github.io/UpDev/)
