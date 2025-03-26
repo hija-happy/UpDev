@@ -1,3 +1,6 @@
+const Prism = require("./prism");
+
+console.log(Prism);
 const runBtn = document.getElementById("runButton");
 const inputCode = document.getElementById("codeEditor");
 const previewOutput =  document.getElementById("preview");
@@ -18,7 +21,6 @@ inputCode.addEventListener("input",function(){
     localStorage.setItem("savedCode",inputCode.value);
     this.value = this.value.replace(/[“”]/g,'"').replace(/[‘’]/g,"'");
 })
-
 
 runBtn.addEventListener("click", function(){
 
@@ -127,23 +129,31 @@ else if(button.id==="clearOutput"){
 document.getElementById("clearInput").addEventListener("click",clearCodeAll);
 document.getElementById("clearOutput").addEventListener("click",clearCodeAll);
 
-
 // for theme toggle 
 const themeToggle = document.getElementById("themeToggle");
 
 themeToggle.addEventListener("click",function(){
     document.body.classList.toggle("light-theme");
-
     if(document.body.classList.contains("light-theme")){
         localStorage.setItem("theme","light");
         themeToggle.innerHTML ="🌚 Dark Mode";
     }
-    
-    
     else{
         localStorage.setItem("theme","dark");
         themeToggle.innerHTML ="🌞 Light Mode"
     }
 });
 
+
+// for syntax highlighting
+
+const highlightedCode = document.getElementById("highlightedCode");
+
+function highlightCode(){
+    let code = inputCode.value;
+    highlightedCode.textContent = code;
+    Prism.highlightElement(highlightedCode);
+}
+
+inputCode.addEventListener("input",highlightCode);
 
