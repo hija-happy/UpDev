@@ -1,6 +1,4 @@
-const Prism = require("./prism");
 
-console.log(Prism);
 const runBtn = document.getElementById("runButton");
 const inputCode = document.getElementById("codeEditor");
 const previewOutput =  document.getElementById("preview");
@@ -145,15 +143,15 @@ themeToggle.addEventListener("click",function(){
 });
 
 
-// for syntax highlighting
+// // for syntax highlighting
 
-const highlightedCode = document.getElementById("highlightedCode");
+// const highlightedCode = document.getElementById("highlightedCode");
 
-function highlightCode(){
-    let code = inputCode.value;
-    highlightedCode.textContent = code;
-    Prism.highlightElement(highlightedCode);
-}
+// function highlightCode(){
+//     let code = inputCode.value;
+//     highlightedCode.textContent = code;
+//     Prism.highlightElement(highlightedCode);
+// }
 
-inputCode.addEventListener("input",highlightCode);
+// inputCode.addEventListener("input",highlightCode);
 
